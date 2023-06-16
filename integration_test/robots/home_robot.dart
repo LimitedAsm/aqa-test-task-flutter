@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:test_task_flutter/home_screen.dart';
+
+import '../../test/utils/app_bar.dart';
 
 class HomeRobot {
   const HomeRobot(this.tester);
@@ -20,22 +21,11 @@ class HomeRobot {
   }
 
   Future<void> pageBack() async {
-    await tester.tap(_findBackButton());
+    await tester.tap(findBackButton());
     await tester.pumpAndSettle();
   }
 
   Future<void> checkIsHome() async {
     expect(find.byType(HomeScreen), findsOneWidget);
-  }
-
-  Finder _findBackButton() {
-    return find.byWidgetPredicate(
-      (widget) => _isBackButton(widget),
-      description: 'widget with icon "arrow_back"',
-    );
-  }
-
-  bool _isBackButton(Widget widget) {
-    return widget is Icon && widget.icon == Icons.arrow_back;
   }
 }

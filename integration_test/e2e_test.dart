@@ -26,7 +26,7 @@ void main() {
       await homeRobot.checkIsHome();
     });
 
-    testWidgets('Yellow  screen', (tester) async {
+    testWidgets('Yellow screen', (tester) async {
       app.main();
       await tester.pumpAndSettle();
 
