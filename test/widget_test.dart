@@ -17,8 +17,6 @@ void main() {
     when(() => generator.generate()).thenReturn(0);
     final yellowScreen = MaterialApp(home: YellowScreen(generator: generator));
 
-    setUp(() {});
-
     testWidgets('Отображаться кнопка "случайное число"', (tester) async {
       await tester.pumpWidget(yellowScreen);
       expect(findRandomNumberButton(), findsOneWidget);
